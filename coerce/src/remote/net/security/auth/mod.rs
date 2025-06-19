@@ -24,7 +24,7 @@ impl ClientAuth {
         }
     }
 
-    pub fn validate_token(&self, token: &str) -> bool {
+    pub fn validate_token(&self, _token: &str) -> bool {
         match &self {
             ClientAuth::None => true,
 

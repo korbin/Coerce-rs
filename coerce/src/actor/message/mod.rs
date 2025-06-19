@@ -219,6 +219,7 @@ where
     fn from_bytes(buf: Vec<u8>) -> Result<Self, MessageUnwrapErr>;
 }
 
+#[cfg(feature = "remote")]
 impl<T: protobuf::Message> ToBytes for T {
     fn to_bytes(self) -> Result<Vec<u8>, MessageWrapErr> {
         self.write_to_bytes()
@@ -226,6 +227,7 @@ impl<T: protobuf::Message> ToBytes for T {
     }
 }
 
+#[cfg(feature = "remote")]
 impl<T: protobuf::Message> FromBytes for T
 where
     Self: Sized,

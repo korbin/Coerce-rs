@@ -1,3 +1,4 @@
+#![allow(warnings)]
 //! Coerce is a framework for creating distributed, event-driven applications, implementing [Carl Hewitt]'s [actor model].
 //!
 //! Taking inspiration from [akka], [akka.net], [actix] and [Orleans], Coerce brings

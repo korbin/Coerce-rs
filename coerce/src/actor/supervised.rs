@@ -79,11 +79,13 @@ impl Supervised {
             self.path.clone(),
         );
 
-        self.children
-            .insert(id.clone(), ChildRef::spawned(actor_ref.clone().into()));
-
         match rx.await {
-            Ok(_) => Ok(actor_ref),
+            Ok(_) => {
+                self.children
+                    .insert(id.clone(), ChildRef::spawned(actor_ref.clone().into()));
+
+                Ok(actor_ref)
+            }
             Err(e) => {
                 error!("error spawning supervised actor (id={}) {}", &id, e);
                 Err(ActorRefErr::ActorStartFailed)

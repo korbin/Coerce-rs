@@ -455,7 +455,7 @@ pub fn attach_stream<S, T, R, E, A, M>(
 }
 
 pub struct StreamAttachmentOptions {
-    stop_on_stream_end: bool,
+    pub stop_on_stream_end: bool,
 }
 
 impl Default for StreamAttachmentOptions {
